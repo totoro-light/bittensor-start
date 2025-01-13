@@ -1,0 +1,7 @@
+bittensor-subnet-template/
+bittensor/
+bt_venv/
+config.yml
+prompting/
+subtensor/
+wallets
