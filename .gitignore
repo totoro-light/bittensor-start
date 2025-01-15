@@ -1,7 +1,17 @@
-bittensor-subnet-template/
-bittensor/
+*.log
+tmp/
+
 bt_venv/
+
+# links
 config.yml
-prompting/
-subtensor/
 wallets
+
+bittensor/
+subtensor/
+
+bittensor-subnet-template/
+
+prompting/
+tensorage/
+compute-subnet/

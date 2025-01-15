@@ -7,19 +7,26 @@ Ref: https://github.com/opentensor/bittensor-subnet-template/blob/main/docs/runn
 
 rm -rf ~/.bittensor/wallets
 btcli wallet new_coldkey --wallet.name owner --no-use-password --n-words 12 --wallet.path "~/.bittensor/wallets" & \
+btcli wallet new_coldkey --wallet.name owner2 --no-use-password --n-words 12 --wallet.path "~/.bittensor/wallets" & \
 btcli wallet new_coldkey --wallet.name miner --no-use-password --n-words 12 --wallet.path "~/.bittensor/wallets" & \
 btcli wallet new_coldkey --wallet.name validator --no-use-password --n-words 12 --wallet.path "~/.bittensor/wallets"
 
 btcli wallet new_hotkey --wallet.name miner --wallet.hotkey default --n-words 12 --wallet.path  "~/.bittensor/wallets" & \
 btcli wallet new_hotkey --wallet.name validator --wallet.hotkey default --n-words 12 --wallet.path  "~/.bittensor/wallets"
 
+
+btcli wallet new_coldkey --wallet.name genpool-validator --no-use-password --n-words 12 --wallet.path "~/.bittensor/wallets"
+btcli wallet new_hotkey --wallet.name genpool-validator --wallet.hotkey default --n-words 12 --wallet.path  "~/.bittensor/wallets"
+
 # rm -rf target
 # BUILD_BINARY=1 ./scripts/localnet.sh False
 BUILD_BINARY=0 ./scripts/localnet.sh False
 
 btcli wallet faucet -y -u 5000 --wallet.name owner & \
+btcli wallet faucet -y -u 5000 --wallet.name owner2 & \
 btcli wallet faucet -y -u 5000 --wallet.name miner & \
-btcli wallet faucet -y -u 5000 --wallet.name validator
+btcli wallet faucet -y -u 5000 --wallet.name validator & \
+btcli wallet faucet -y -u 5000 --wallet.name genpool-validator
 
 btcli wallet inspect -a
 
@@ -27,7 +34,12 @@ btcli subnet list
 btcli subnet create --wallet.name owner -y
 btcli subnet register --wallet.name miner     --wallet.hotkey default --netuid 1 -y
 btcli subnet register --wallet.name validator --wallet.hotkey default --netuid 1 -y
+btcli stake add --wallet.name validator --wallet.hotkey default --amount 1000 -y
 
+btcli subnet create --wallet.name owner2 -y
+btcli subnet list
+btcli subnet register --wallet.name miner     --wallet.hotkey default --netuid 2 -y
+btcli subnet register --wallet.name validator --wallet.hotkey default --netuid 2 -y
 btcli stake add --wallet.name validator --wallet.hotkey default --amount 1000 -y
 
 # Review
