@@ -15,8 +15,13 @@ btcli wallet new_hotkey --wallet.name miner --wallet.hotkey default --n-words 12
 btcli wallet new_hotkey --wallet.name validator --wallet.hotkey default --n-words 12 --wallet.path  "~/.bittensor/wallets"
 
 
-btcli wallet new_coldkey --wallet.name genpool-validator --no-use-password --n-words 12 --wallet.path "~/.bittensor/wallets"
-btcli wallet new_hotkey --wallet.name genpool-validator --wallet.hotkey default --n-words 12 --wallet.path  "~/.bittensor/wallets"
+btcli wallet regen-coldkey --wallet.name genpool-validator --no-use-password --wallet.path "~/.bittensor/wallets" --mnemonic ""
+
+btcli wallet list --wallet.path "~/.bittensor/wallets"
+
+# btcli wallet new_coldkey --wallet.name genpool-validator --no-use-password --n-words 12 --wallet.path "~/.bittensor/wallets"
+# btcli wallet new_hotkey --wallet.name genpool-validator --wallet.hotkey default --n-words 12 --wallet.path  "~/.bittensor/wallets"
+
 
 # rm -rf target
 # BUILD_BINARY=1 ./scripts/localnet.sh False
