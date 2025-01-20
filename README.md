@@ -16,6 +16,7 @@ btcli wallet new_hotkey --wallet.name validator --wallet.hotkey default --n-word
 
 
 btcli wallet regen-coldkey --wallet.name genpool-validator --no-use-password --wallet.path "~/.bittensor/wallets" --mnemonic ""
+btcli wallet regen-hotkey --wallet.name genpool-validator --no-use-password --wallet.path "~/.bittensor/wallets" --mnemonic ""
 
 btcli wallet list --wallet.path "~/.bittensor/wallets"
 
