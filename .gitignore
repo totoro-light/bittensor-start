@@ -2,6 +2,8 @@
 tmp/
 
 bt_venv/
+btcli_venv/
+btsdk_venv/
 
 # links
 config.yml
@@ -17,3 +19,4 @@ tensorage/
 compute-subnet/
 subnet/
 web-genie-ai/
+data-universe/
