@@ -31,7 +31,6 @@ cd subtensor
 BUILD_BINARY=0 ./scripts/localnet.sh False
 
 btcli wallet faucet -y -u 5000 --max-successes 5 --wallet.name owner & \
-btcli wallet faucet -y -u 5000 --max-successes 5 --wallet.name owner2 & \
 btcli wallet faucet -y -u 5000 --max-successes 5 --wallet.name miner & \
 btcli wallet faucet -y -u 5000 --max-successes 5 --wallet.name validator
 
@@ -51,6 +50,7 @@ btcli stake add --wallet.name validator --wallet.hotkey default --amount 1000 -y
 # It vary base on actual subnet document.
 #
 
+# btcli wallet faucet -y -u 5000 --max-successes 5 --wallet.name owner2
 # btcli subnet create --wallet.name owner2 -y
 # btcli subnet list
 # btcli subnet register --wallet.name miner     --wallet.hotkey default --netuid 2 -y
